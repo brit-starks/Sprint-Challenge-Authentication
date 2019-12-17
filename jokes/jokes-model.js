@@ -26,5 +26,6 @@ async function insert(user) {
 
 function findBy(filter) {
   return db('users')
+    .select('id', 'username', 'password')
     .where(filter);
 }

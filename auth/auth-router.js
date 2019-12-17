@@ -38,7 +38,7 @@ router.post('/login', (req, res) => {
     .catch( err => {
       res.status(500).json({
         err, 
-        message: 'Opps, something happened on our end...'
+        message: 'Opps'
       });
     });
 });
