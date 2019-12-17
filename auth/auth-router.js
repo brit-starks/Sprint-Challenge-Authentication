@@ -20,7 +20,7 @@ user.password = hash;
 });
 
 router.post('/login', (req, res) => {
-  let { username, password } = req.body;
+  let { username, password } = req.headers;
 
   users.findBy({ username })
   .first()
@@ -32,13 +32,13 @@ router.post('/login', (req, res) => {
       } else {
         res.status(401).json({
           message: 'Invalid Credentials'
-        });
+        })
       }
     })
     .catch( err => {
       res.status(500).json({
         err, 
-        message: 'Opps'
+        message: 'Opps, something is wrong here..'
       });
     });
 });
